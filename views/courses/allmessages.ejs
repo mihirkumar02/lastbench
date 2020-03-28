@@ -1,0 +1,10 @@
+<a href="/dashboard/<%= student._id %>">Go back</a>
+<a href="/users/logout">Logout</a>
+
+<h2>Class Messages</h2>
+
+<% messages.forEach(function(message) { %>
+    <h3>From: <%= message.sender.name %></h3>
+    <h5>Message: <%= message.message %></h5>
+<% }); %>
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Last Bench | Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+  </head>
+  <body>
+
+<div id="form-section">
+  <div class="container form-container">
+    <h1>Login</h1>
+    <%- include('./partials/messages') %>
+    <div class="formbox">
+        <form action="/users/login" method="POST">
+          <div class="row">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-field"
+              placeholder="Enter Email"
+            />
+          </div>
+          <div class="row">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-field"
+              placeholder="Enter Password"
+            />
+          </div>
+          <div class="row">
+            <button class="button login">Login</button>
+          </div>
+        </form>
+        <p class="lead mt-4">
+          No Account? <span class="lavendertext"><a href="/users/register"><i class="fa fa-signin"></i> Register</a></span>
+        </p>
+    </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<h1>Post verification page</h1>
+
+<a href="/courses/<%= course._id %>/<%= user._id %>">Go back</a>
+<a href="/users/logout" class="btn btn-secondary">Logout</a>
+<% posts.forEach(function(post){ %>
+    <div>
+        <h1><%= post.title %></h2>
+        <h3>by - <%= post.author.regno %>&nbsp;<%= post.author.username %></h3>
+        <h4><%= post.description %></h4>
+        <img src="/course/<%= post.image %>" height="300px" width="300px" alt="Image">
+        <form action="/courses/<%= course._id %>/<%= user._id %>/verified/<%= post._id %>" method="POST">
+            <button>Approve</button>
+        </form>
+        <form action="/courses/<%= course._id %>/<%= user._id %>/<%= post._id %>?_method=DELETE" method="POST">
+            <button>Delete</button>
+        </form>
+    </div>  
+<% }); %>
+<% if(posts.length == 0){ %>
+    <h2>No posts to verify!</h2>
+<% } %>

@@ -1,0 +1,8 @@
+<h1>Edit <%= post.title %></h1>
+<form action="/courses/<%= course._id %>/<%= user._id %>/<%= post._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+    <input type="text" name="title" value="<%= post.title %>">
+    <input type="text" name="description" value="<%= post.description %>">
+    <input type="file" name="courseimage">
+    <button>Update</button>
+</form>
+<a href="/courses/<%= course._id %>/<%= user._id %>">Go back</a>

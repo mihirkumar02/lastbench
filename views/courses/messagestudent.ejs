@@ -1,0 +1,7 @@
+<h2>Leave a message for <%= student.fname %>&nbsp;<%= student.lname %></h2>
+
+<form action="/studentmessages/<%= student._id %>" method="POST">
+    <input type="text" name="sender" value="<%= user.fname %> <%= user.lname %>">
+    <textarea name="message" cols="30" rows="10" placeholder="Type your message here.."></textarea>
+    <button>Send</button>
+</form>

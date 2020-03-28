@@ -1,0 +1,32 @@
+<a href="/dashboard/<%= user._id %>">Go back</a>
+<a href="/friends/<%= user._id %>/new">Add a Friend</a>
+
+<h2>My Friends</h2>
+
+<% friends.forEach(function(friend){ %>
+    <div>
+        <img src="/upload/<%= friend.userImage %>" height="300px" width="300px" alt="Profile Pic">
+        <h2><%= friend.sender.fname %>&nbsp;<%= friend.sender.lname %></h2>
+        <h2><%= friend.sender.email %></h2>
+        <h2><%= friend.sender.website %></h2>
+        <h2><%= friend.sender.interests %></h2>
+        <h2><%= friend.sender.about %></h2>
+        <h2><%= friend.sender.city %></h2>
+        <h2><%= friend.sender.country %></h2>
+    </div>
+<% }) %>
+
+<h2>Requests</h2>
+
+<% requests.forEach(function(request){ %>
+    <div>
+        <img src="/upload/<%= request.userImage %>" height="300px" width="300px" alt="Profile Pic">
+        <h2><%= request.sender.fname %>&nbsp;<%= request.sender.lname %></h2>
+        <h2><%= request.sender.website %></h2>
+        <h2><%= request.sender.city %></h2>
+        <h2><%= request.sender.country %></h2>
+        <form action="/friends/<%= user._id %>/accept/<%= request._id %>" method="POST">
+            <button>Accept</button>
+        </form>
+    </div>
+<% }) %>

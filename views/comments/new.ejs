@@ -1,0 +1,6 @@
+<h1>Add new comment to <%= post.title %></h1>
+
+<form action="/dashboard/<%= user._id %>/<%= post._id %>" method="POST">
+    <input type="text" name="text" placeholder="Enter the comment..">
+    <button type="submit">Submit</button>
+</form>

@@ -1,0 +1,36 @@
+<a href="/users/logout" class="btn btn-secondary">Logout</a>
+
+
+<div>
+        <div>
+            <h2><%= post.title %> by - <span><%= post.author.username %></span></h2>
+            <h4>On - <span><%= post.date %></span></h4>
+            <% if(post.image != '') { %>
+                <img src="/dashboard/<%= post.image %>" alt="No image provided"/>
+            <% } %>
+            <p><%= post.description %></p>
+
+            <% if((currentUser && post.author.id.equals(currentUser._id)) || (currentUser.role === 'Admin')){ %>
+            <a href="/dashboard/<%= user._id %>/<%= post._id %>/edit">Edit</a>
+            <form action="/dashboard/<%= user._id %>/<%= post._id %>?_method=DELETE" method="POST">
+                <button>Delete</button>
+            </form>
+            <% } %>
+            <hr>
+            <div>
+                <% post.comments.forEach(function(comment){ %>
+                    <div>
+                        <h3><%= comment.text %></h3>
+                        <p>by <%= comment.author.username %></p>
+                    </div>
+                    <% if((currentUser && comment.author.id.equals(currentUser._id)) || currentUser.fname === 'Admin'){ %>
+                        <a class="btn btn-xs btn-warning" href="/dashboard/<%= user._id %>/<%= post._id %>/comments/<%= comment._id %>/edit">Edit</a>
+                        <form style="display:inline;" action="/dashboard/<%= user._id %>/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                          <button class="btn btn-xs btn-danger">Delete</button>
+                        </form>
+                        <% } %>
+                <% }); %>
+            </div>
+            <a href="/dashboard/<%= user._id %>/<%= post._id %>/comments/new">Comment</a>
+        </div>        
+</div>

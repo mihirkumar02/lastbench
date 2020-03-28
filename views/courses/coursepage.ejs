@@ -1,0 +1,62 @@
+<h1>Course Page</h1>
+<h3>for</h3>
+<h3><%= course.code %> - <%= course.name %></h3>
+<h4>Taught by - <%= course.faculty.username %></h4>
+
+<% if(user.role === 'Faculty') { %>
+    <a href="/courses/<%= course._id %>/<%= user._id %>/pending">Approve posts</a>
+    <form action="/courses/student" method="POST">
+        <input type="text" name="searchregno" placeholder="Enter registration number to be searched..">
+        <button>Search</button>
+    </form>
+<% } %>
+
+<a href="/courses/<%= course._id %>/<%= user._id %>/new">Add new post</a>
+
+<a href="/courses/<%= course._id %>/details">Go back</a>
+<a href="/users/logout" class="btn btn-secondary">Logout</a>
+
+<% if(user.role === 'Faculty') { %>
+    <form action="/courses/<%= course.id %>/<%= user._id %>/file" method="POST" enctype="multipart/form-data">
+        <input type="text" name="description" placeholder="About the file..">
+        <input type="file" name="uploadFile">
+        <button>Upload</button>
+    </form>
+<% } %> 
+
+<div>
+    <div>
+        <h2>Posts</h2>
+        <% posts.forEach(function(post){ %>
+            <% if(post.verified){ %>
+                <div>
+                    <h1><%= post.title %></h1>
+                    <h3>by - <%= post.author.regno %>&nbsp;<%= post.author.username %></h3>
+                    <h4><%= post.description %></h4>
+                    <% if(post.image != ''){ %>
+                        <img src="/course/<%= post.image %>" height="300px" width="300px" alt="No image provided"/>
+                    <% } %>
+                    <% if((currentUser && post.author.id.equals(currentUser._id)) || (currentUser.role === 'Admin' || currentUser.role === 'Faculty')){ %>
+                    <div>
+                        <a href="/courses/<%= course._id %>/<%= user._id %>/<%= post._id %>/edit">Edit</a>
+                        <form action="/courses/<%= course._id %>/<%= user._id %>/<%= post._id %>?_method=DELETE" method="POST">
+                           <button>Delete</button>
+                        </form>
+                    </div>
+                    <% } %>
+                </div>
+            <% } %>
+        <% }); %>        
+    </div>
+    <div>
+        <h2>Files</h2>
+        <% files.forEach(function(file){ %>
+            <div>
+                <h4><%= file.description %></h4>
+                <form action="/courses/<%= course._id %>/<%= user._id %>/download/<%= file._id %>" method="GET">
+                    <button>Download</button>
+                </form>
+            </div>
+        <% }); %>
+    </div>
+</div>

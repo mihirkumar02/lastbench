@@ -1,0 +1,22 @@
+<h1 class="mt-4">Current Users</h1>
+<p class="lead mb-3">Welcome <b><%= user.fname %></b>!</p>
+<a href="/profile/<%= user._id %>">Profile</a>
+<a href="/users/logout" class="btn btn-secondary">Logout</a>
+
+
+<div>
+    <% users.forEach(function(nonadmin){ %>
+        <% if(nonadmin.role != 'Admin') { %>
+            <div>
+                <div>
+                    <h2><%= nonadmin.fname %> <%= nonadmin.lname %></h2>
+                    <form action="/admin/dashboard/<%= nonadmin._id %>?_method=DELETE" method="POST">
+                        <button>Delete</button>
+                    </form>
+                </div>
+            </div>  
+        <% } %>      
+    <%  }); %>
+</div>
+
+<a href="/dashboard">Go back</a>

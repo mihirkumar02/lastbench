@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <title>Last Bench | My Profile</title>
+  </head>
+  <body>
+
+
+<%- include('../partials/nav') %>
+
+<div id="main">
+    <h1 class="mt-4"><%= user.fname %>'s Posts</h1>
+
+<a href="/profile/<%= user._id %>">Profile</a>
+<a href="/dashboard/<%= user._id %>/new">Add new post</a>
+<a href="/users/logout" class="btn btn-secondary">Logout</a>
+<a href="/dashboard/<%= user._id %>">Go back</a>
+
+
+<div>
+    <% posts.forEach(function(post){ %>
+        <% if(post.author.id.equals(user._id)){ %>
+        <div>
+            <h2><%= post.title %></h2>
+            <% if(post.image.length>0) { %>
+                <img src="/dashboard/<%= post.image %>" width="300px" height="300px" alt="<%= post.title %>">
+            <% } %>
+                <p><%= post.description %></p>
+        </div>        
+        <a href="/dashboard/<%= user._id %>/<%= post._id %>/edit">Edit</a>
+        <form action="/dashboard/<%= user._id %>/<%= post._id %>?_method=DELETE" method="POST">
+            <button>Delete</button>
+        </form>
+        <% } %>
+    <%  }); %>
+</div>
+
+</div>
+
+<%-  include('../partials/footer') %>

@@ -1,0 +1,24 @@
+<nav class="sidenav" id="mySidenav">
+    <ul>
+    <li><a href="/dashboard"><img class="logo" src="../img/logo.jpg" alt="Logo"></a></li>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <% if(user.fname === 'Admin') { %>
+        <li><a href="/admin/dashboard"><i class="fa fa-user"></i> Current Users</a></li>
+    <% } %>
+    <li><a href="/profile/<%= user._id %>"><i class="fa fa-user"></i> Profile</a></li>
+    <li><a href="/myposts/<%= user._id %>"><i class="fa fa-image"></i> My Posts</a></li>
+    <li><a href="/dashboard/<%= user._id %>/new"><i class="fa fa-plus"></i> Add new post</a></li>
+    <li><a href="/admin/courses"><i class="fa fa-book"></i> All courses</a></li>
+    <% if(user.role === 'Student' || user.role === 'Faculty') { %>
+        <% if(user.role === 'Student') { %>
+            <li><a href="/studentmessages/<%= user._id %>/all"><i class="fa fa-vcard"></i> Class Messages</a></li>
+            <li><a href="/friends/<%= user._id %>"><i class="fa fa-group"></i> Friends</a></li>
+        <% } %>
+        <li><a href="/courses/<%= user._id %>"><i class="fa fa-mortar-board"></i >My courses</a></li>
+    <% } %>
+    <li><a href="/users/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+    </ul>
+</nav>
+<div class="container feed">
+    <span class="bar" onclick="openNav()"><i class="fa fa-bars"></i></span>
+</div>

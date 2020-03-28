@@ -1,0 +1,27 @@
+<% if(user.role === 'Faculty') { %>
+    <h2>Courses taught by <%= user.fname %> <%= user.lname %></h2>
+
+    <div>
+        <% courses.forEach(function(course){ %>
+            <div>
+                <h3><%= course.code %> - <%= course.name %></h3>
+                <a href="/courses/<%= course._id %>/details">Details</a>
+            </div>
+        <% }); %>   
+    </div>
+<% } else { %>
+    <h2>Registered courses for <%= user.fname %></h2>
+
+    <div>
+        <% courses.forEach(function(course){ %>
+            <div>
+                <h3><%= course.code %> - <%= course.name %></h3>
+                <h4>Taught by - <%= course.faculty.username %></h4>
+                <a href="/courses/<%= course._id %>/details">Details</a>
+            </div>
+        <% }); %>   
+    </div>
+<% } %>
+
+
+<a href="/dashboard/<%= user._id %>">Go back</a>

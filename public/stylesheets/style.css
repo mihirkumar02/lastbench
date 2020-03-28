@@ -1,0 +1,322 @@
+*{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.logo{
+  max-height: 70%;
+  max-width: 70%;
+}
+
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #734f96; 
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  }
+  
+  /* The navigation menu links */
+  .sidenav li {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .sidenav a{
+    color: white;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    opacity: 0.6;
+    text-decoration: none;
+  }
+  
+  /* Position and style the close button (top right corner) */
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+    transition: margin-left .5s;
+    padding: 20px;
+    min-height: 80vh;
+  }
+
+  .display{
+    margin-bottom: 10px;
+  }
+  .image{
+    height:50%;
+    width:50%;
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+  }
+
+  .bar{
+    font-size: 30px;
+    float: left;
+  }
+
+  .bar:hover{
+    cursor: pointer;
+  }
+
+  .feed{
+    text-align: center;
+  }
+
+  .readmore{
+    font-size: 23px;
+  }
+
+  .readmore a{
+    color: darkblue;
+    font-style: italic;
+  }
+
+  .readmore a:hover{
+    opacity: 0.6;
+    text-decoration: none;
+  }
+
+  .author{
+    font-weight: bold;
+  }
+
+  #footer{
+    min-height: 15vh;
+    background-color: black;
+    padding-top: 5vh;
+  }
+
+  #footer h4{
+    color: white;
+    font-size: 20px;
+  }
+  
+  #footer a{
+    color: white;
+    font-size: 25px;
+  }
+
+  #footer ul li{
+    list-style-type: none;
+    display: inline;
+    padding:5px;
+  }
+
+  .profilepic{
+    width: 40%;
+    height: 50%;
+    box-shadow: 0 0 3px 2px black;
+  }
+
+  hr.hrstyle{
+    border: 1px solid #734f96;
+  }
+
+  .back a{
+    color: black;
+    font-size: 25px;
+  }
+
+  .back a:hover{
+    color: #734f96;
+    text-decoration: none;
+  }
+
+  .back a:active{
+    color: #734f96;
+    text-decoration: none;
+  }
+
+  #welcome {
+    background-image: url('../img/welcome.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+  }
+
+  #welcome .welcometextbox{
+    background-color: rgb(115, 79, 150, 0.4);
+    padding: 20px 10px;
+    margin: 25% 0 0 50%;
+    color: black;
+    border-radius: 10px;
+    box-shadow: 0 0 2px 2px black;
+  }
+
+  #welcome .welcometext{
+    text-align: center;
+  }
+
+  .errordiv{
+    text-align: center;
+  }
+
+  .welcomelogo{
+    max-width: 35%;
+    max-height: 35%;
+  }
+  
+  .createacc{
+    text-align: center;
+    margin-top: 10%;
+    padding: 25px;
+    background-color: rgb(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 0 2px 2px black;
+  }
+
+  .createacc h3{
+    padding-top: 5vh;
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+  }
+
+  .options{
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    padding-top: 10vh;
+  }
+
+  .options h3{
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  .button{
+    padding: 10px 15px;
+    font-size: 20px;
+    background-color: white;
+    box-shadow: 0 0 1px 1px black;
+    border-radius: 2px;
+    border:none;
+  }
+
+  .login:hover{
+    background-color: #dacc09;
+    color: white;
+  }
+
+  .button a{
+    color: black;
+  }
+
+  .button a:hover{
+    text-decoration: none;
+ 
+    transition-duration: 0.5s;
+  }
+
+  .button:hover{
+    box-shadow: none;
+  }
+
+  .lower{
+    text-align: center;
+  }
+
+  .lower h4{
+    font-weight: bold;
+    font-size: 25px;
+
+  }
+
+  #useroptions{
+    background-image: url('../img/createacc.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+  }
+
+  .onscreen{
+    text-align: center;
+    margin-top: 15vh;
+  }
+
+  .onscreen h4{
+    font-size: 25px;
+  }
+
+  .student{
+    background-color: #734f96;
+  }
+
+  .tutor{
+    background-color: #734f96;
+  }
+
+  .student a{
+    color: white;
+  }
+
+  
+  .tutor a{
+    color: white;
+  }
+
+  .form-field{
+    width: 70%;
+    background-color: #f5f0ab;
+    color: black;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+  }
+
+  .form-field:focus{
+    outline: none;
+    border: 1px dashed black;
+  }
+  
+  .lavendertext a{
+    color: #734f96;
+    font-weight: bold;
+  }
+
+  
+  .lavendertext a:hover{
+    text-decoration: none;
+    opacity: 0.7;
+  }
+
+  .formbox{
+    width: 50%;
+    border: 1px solid black;
+    padding: 10vh 0;
+    margin: 0 auto;
+    box-shadow: 0 0 5px 2px gray;
+    background-color: rgb(255, 255, 255, 0.2);
+  }
+
+  .form-container{
+    text-align: center;
+  }
+
+  #form-section{
+    background-image: url('../img/formbg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+  }

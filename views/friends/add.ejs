@@ -1,0 +1,9 @@
+<a href="/dashboard/<%= user._id %>">Go back</a>
+<h2>Add a friend!</h2>
+
+<% students.forEach(function(student) { %>
+    <h2><%= student.fname %></h2>
+    <form action="/friends/<%= user._id %>/request/<%= student._id %>" method="POST">
+        <button>Send Request</button>
+    </form>
+<% }); %>

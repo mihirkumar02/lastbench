@@ -1,0 +1,29 @@
+<h2><%= course.code %> - <%= course.name %></h2>
+<h4>Taught by - </h4>
+<h5><%= course.faculty.username %></h5>
+<a href="/admin/courses">Go back</a>
+
+<% if((user.role === 'Faculty' && (course.faculty.id.equals(user._id))) || user.role === 'Admin') { %>
+    <% if(user.role === 'Faculty') { %>
+        <a href="/courses/<%= course._id %>/<%= user._id %>/pending">Approve posts</a>
+        <form action="/courses/student" method="POST">
+            <input type="text" name="searchregno" placeholder="Enter registration number to be searched..">
+            <button>Search</button>
+        </form>
+    <% } %>
+    <a href="/courses/<%= course._id %>/<%= user._id %>">Course Page</a>
+    <h1>Students</h1>
+    <% course.students.forEach(function(student){   %>
+        <h3><%= student.regno %>&nbsp;<%= student.username %></h3>
+    <% }); %>
+<% } %>
+
+<% if(user.role === 'Student'){ %>
+    <% if(user.courses.includes(course.code)) { %>
+        <a href="/courses/<%= course._id %>/<%= user._id %>">Course Page</a>
+    <% } else { %>
+        <form action="/courses/<%= course._id %>/enrolled" method="POST">
+            <button>Enroll</button>
+        </form>  
+    <% } %>   
+<% } %>

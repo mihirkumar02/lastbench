@@ -1,0 +1,41 @@
+<h1>All courses!</h1>
+<% if(user.role === 'Admin'){ %>
+    <a href="/admin/courses/new">Add new course</a>
+<% } %>
+
+<div>
+    <div>
+        <div>
+            <h2>Faculty Needed</h2>
+            <% courses.forEach(function(course){ %>
+                <% if((!course.teaching) && (user.role === 'Faculty' || user.role === 'Admin')) { %>
+                    <h3><%= course.code %> - <%= course.name %></h3>
+                    <% if(user.role === 'Faculty') { %>
+                        <form action="/courses/<%= course._id %>/details" method="POST">
+                            <button>Teach</button>
+                        </form>
+                    <% } %>
+                <% } %>
+            <% }); %>
+        </div>
+ 
+        <div style="float:right;margin-right: 100px;">
+            <h2>Available Courses</h2>
+            <% courses.forEach(function(course){ %>
+                <% if(course.teaching) { %>
+                    <h3><%= course.code %> - <%= course.name %></h3>
+                    <% if(user.role === 'Student' || user.role === 'Admin'){ %>
+                        <h4>Taught by - <%= course.faculty.username %></h4>
+                        <a href="/courses/<%= course._id %>/details">Details</a>
+                    <% } else if(user.role === 'Faculty'){ %>
+                        <% if(user._id.equals(course.faculty.id)) { %> 
+                            <a href="/courses/<%= course._id %>/details">Details</a>
+                        <% } %>
+                    <% } %>    
+                <% } %>  
+            <% }); %>
+        </div>
+    </div>
+</div>
+
+<a href="/dashboard/<%= user._id %>">Go back</a>
