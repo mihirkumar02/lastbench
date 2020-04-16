@@ -24,27 +24,30 @@
                 <form action="/profile/<%= user._id %>" method="POST" enctype="multipart/form-data">
                     <span>Select profile picture</span>
                     <input type="file" name="uploadImage">
-                    <button>Upload</button>
+                    <button class="button login">Upload</button>
                 </form>
                 
                 <div>
                     <h4><%= user.regno %></h4>
                     <h3><%= user.about %></h3>
                     <h3><%= user.city %>, <%= user.country %></h3>
-                    <h5>My hobbies are <%= user.interests %></h5>
-                    <h4>Contact me @</h4>
-                    <p><%= user.contact %></p>
-                    <p><%= user.website %></p>
+                    <h4>My hobbies are <%= user.interests %></h4>
+                    <hr>
+                    <h3>Contact me @</h3>
+                    <h4><%= user.contact %></h4>
+                    <h4><%= user.website %></h4>
                 </div>
-                <a href="/profile/<%= user._id %>/edit">Edit profile</a>
+                <a class="button login" href="/profile/<%= user._id %>/edit">Edit profile</a>
             </div>
             <div class="col-md-6 col-sm-12">
                 <h3>Edit Account details</h3>
                 <form action="/users/edit/<%= user._id %>?_method=PUT" method="POST">
-                    <input type="password" name="currentpassword" placeholder="Enter current password..">
-                    <input type="email" name="email" placeholder="New email..">
-                    <input type="password" name="password" placeholder="Enter new password..">
-                    <button>Update</button>
+                    <input class="form-field" type="password" name="currentpassword" placeholder="Enter current password..">
+                    <input class="form-field" type="email" name="email" placeholder="New email..">
+                    <input class="form-field" type="password" name="password" placeholder="Enter new password..">
+                    <div class="row text-center">
+                        <button class="button login">Update</button>
+                    </div>
                 </form>
             </div>
         </div>

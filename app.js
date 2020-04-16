@@ -1,5 +1,4 @@
 const express = require('express');
-const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const methodOverride = require('method-override');
@@ -20,7 +19,6 @@ mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology: true})
     .catch(err => console.log(err));
 
 // EJS
-app.use(expressLayouts);
 app.set('view engine', 'ejs');
 
 // Public folder

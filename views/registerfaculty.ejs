@@ -1,65 +1,75 @@
-<h1>Register as Tutor</h1>
-<%- include('./partials/messages') %>
+ <!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <title>Sign Up | Last Bench</title>
+  </head>
+  <body>
+
+<div id="reg-form-section"> 
+  <div class="options">
+    <h1>Register as a Faculty</h1>
+  </div>
+    <h4><%- include('./partials/messages') %></h4>
+<div class="container form-container">
+  <div class="formbox">
   <form action="/users/register" method="POST">
-    <div class="form-group">
-      <label for="regno">Employee ID</label>
-      <input type="name" name="regno" placeholder="Enter Employee ID" value="<%= typeof regno != 'undefined' ? regno : '' %>"/>
+    <div class="row">
+      <input class="form-field" type="text" name="regno" placeholder="Enter Employee ID" value="<%= typeof regno != 'undefined' ? regno : '' %>"/>
     </div>
-    <div class="form-group">
-      <label for="fname">First Name</label>
-      <input type="name" name="fname" placeholder="Enter first name" value="<%= typeof fname != 'undefined' ? fname : '' %>"/>
+    <div class="row">
+      <input class="form-field" type="text" name="fname" placeholder="Enter first name" value="<%= typeof fname != 'undefined' ? fname : '' %>"/>
     </div>
-    <div class="form-group">
-      <label for="lname">Last Name</label>
-      <input type="name" name="lname" placeholder="Enter last name" value="<%= typeof lname != 'undefined' ? lname : '' %>"/>
+    <div class="row">
+      <input class="form-field" type="text" name="lname" placeholder="Enter last name" value="<%= typeof lname != 'undefined' ? lname : '' %>"/>
     </div>
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" name="email" placeholder="Enter Email" value="<%= typeof email != 'undefined' ? email : '' %>"/>
+    <div class="row">
+      <input class="form-field" type="email" name="email" placeholder="Enter Email" value="<%= typeof email != 'undefined' ? email : '' %>"/>
     </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" name="password" placeholder="Create Password" value="<%= typeof password != 'undefined' ? password : '' %>"/>
+    <div class="row">
+      <input class="form-field" type="password" name="password" placeholder="Create Password" value="<%= typeof password != 'undefined' ? password : '' %>"/>
      </div>
-    <div class="form-group">
-      <label for="password2">Confirm Password</label>
-      <input type="password" name="password2" placeholder="Confirm Password" value="<%= typeof password2 != 'undefined' ? password2 : '' %>"/>
+    <div class="row">
+      <input class="form-field" type="password" name="password2" placeholder="Confirm Password" value="<%= typeof password2 != 'undefined' ? password2 : '' %>"/>
     </div>
-    <div class="form-group">
-      <label for="code">Access Code</label>
-      <input type="password" name="code" placeholder="Access Code..." value="<%= typeof code != 'undefined' ? code : '' %>"/>
+    <div class="row">
+      <input class="form-field" type="password" name="code" placeholder="Enter Access Code..." value="<%= typeof code != 'undefined' ? code : '' %>"/>
     </div>
-    <div class="form-group">
-      <label for="contact">Contact</label>
-      <input type="number" name="contact" placeholder="Enter contact number" value="<%= typeof contact != 'undefined' ? contact : '' %>"/>
+    <div class="row">
+      <input class="form-field" type="number" name="contact" placeholder="Enter contact number" value="<%= typeof contact != 'undefined' ? contact : '' %>"/>
     </div>
-    <div class="form-group">
-      <label for="website">Website</label>
-      <input type="text" name="website" placeholder="Website" value="<%= typeof website != 'undefined' ? website : '' %>"/>
+    <div class="row">
+      <input class="form-field" type="text" name="website" placeholder="Website" value="<%= typeof website != 'undefined' ? website : '' %>"/>
     </div>
-    <div class="form-group">
-      <label for="about">About</label>
-      <input type="text" name="about" placeholder="About yourself.." value="<%= typeof about != 'undefined' ? about : '' %>"/>
+    <div class="row">
+      <input class="form-field" type="text" name="about" placeholder="About yourself.." value="<%= typeof about != 'undefined' ? about : '' %>"/>
     </div>
-    <div class="form-group">
-      <label for="interests">Interests</label>
-      <input type="text" name="interests" placeholder="Your interests.." value="<%= typeof interests != 'undefined' ? interests : '' %>"/>
+    <div class="row">
+      <input class="form-field" type="text" name="interests" placeholder="Your interests.." value="<%= typeof interests != 'undefined' ? interests : '' %>"/>
     </div>
-    <div class="form-group">
-      <label for="city">City</label>
-      <input type="text" name="city" placeholder="City" value="<%= typeof city != 'undefined' ? city : '' %>"/>
+    <div class="row">
+      <input class="form-field" type="text" name="city" placeholder="City" value="<%= typeof city != 'undefined' ? city : '' %>"/>
     </div>
-    <div class="form-group">
-      <label for="country">Country</label>
-      <input type="text" name="country" placeholder="Country" value="<%= typeof country != 'undefined' ? country : '' %>"/>
+    <div class="row">
+      <input class="form-field" type="text" name="country" placeholder="Country" value="<%= typeof country != 'undefined' ? country : '' %>"/>
     </div>
-    <div class="form-group">
-      <label for="role">Role</label>
-      <input type="text" name="role" readonly="readonly" value="Faculty"/>
+    <div class="row">
+      <input class="form-field" type="text" name="role" readonly="readonly" value="Faculty"/>
     </div>
-    <button type="submit" class="btn btn-primary btn-block">
-      Register
-    </button>
+    <div class="row">
+      <button type="submit" class="button register">
+        Welcome Aboard!
+      </button>
+    </div>
   </form>
-  <p>Still a <a href="/users/register">student?</a></p>
-  <p class="lead mt-4">Have An Account? <a href="/users/login">Login</a></p>
+  <h4 class="category-link">Still a <a href="/users/register">student?</a></h4>
+  <h3 class="mt-4 login-link">Have An Account? <a href="/users/login">Login</a></h3>
+  </div>
+</div>
+</div>
+
+<%-  include('partials/footer') %>

@@ -301,7 +301,7 @@ router.post('/profile/:id', ensureAuthenticated, (req, res) => {
 // PROFILE EDIT ROUTE
 
 router.get('/profile/:id/edit', ensureAuthenticated, (req, res) => {
-    res.render('editprofile', { user: req.user });
+    res.render("editprofile", { user: req.user });
 });
 
 router.put('/profile/:id', ensureAuthenticated, (req, res) => {

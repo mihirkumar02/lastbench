@@ -1,42 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <title>Last Bench | Edit My Profile</title>
+  </head>
+  <body>
+
+
 <%- include('partials/nav') %>
 
 <div id="main">
-  <h1>Edit profile</h1>
+    <div class="container">
+      <span class="back"><a href="/profile/<%= user._id %>"><i class="fa fa-arrow-left"></i> Go back</a></span>
+      <h1>Edit Profile</h1>
 
-  <form action="/profile/<%= user._id %>?_method=PUT" method="POST">
-            <div class="form-group">
-              <label for="fname">First Name</label>
-              <input type="name" name="fname" value="<%= user.fname %>"/>
+        <form action="/profile/<%= user._id %>?_method=PUT" method="POST">
+            <div class="row">
+              <input class="form-field" type="text" name="fname" value="<%= user.fname %>"/>
             </div>
-            <div class="form-group">
-              <label for="lname">Last Name</label>
-              <input type="name" name="lname" value="<%= user.lname %>"/>
+            <div class="row">
+              <input class="form-field" type="text" name="lname" value="<%= user.lname %>"/>
             </div>
-            
-            <div class="form-group">
-              <label for="contact">Contact</label>
-              <input type="number" name="contact" value="<%= user.contact %>"/>
+            <div class="row">
+              <input class="form-field" type="number" name="contact" value="<%= user.contact %>"/>
             </div>
-            <div class="form-group">
-              <label for="website">Website</label>
-              <input type="text" name="website" value="<%= user.website %>"/>
+            <div class="row">
+              <input class="form-field" type="text" name="website" value="<%= user.website %>"/>
             </div>
-            <div class="form-group">
-              <label for="about">About</label>
-              <input type="text" name="about" value="<%= user.about %>"/>
+            <div class="row">
+              <input class="form-field" type="text" name="about" value="<%= user.about %>"/>
             </div>
-            <div class="form-group">
-              <label for="interests">Interests</label>
-              <input type="text" name="interests" value="<%= user.interests %>"/>
+            <div class="row">
+              <input class="form-field" type="text" name="interests" value="<%= user.interests %>"/>
             </div>
-            <div class="form-group">
-              <label for="city">City</label>
-              <input type="text" name="city" value="<%= user.city %>"/>
+            <div class="row">
+              <input class="form-field" type="text" name="city" value="<%= user.city %>"/>
             </div>
-            <div class="form-group">
-              <label for="country">Country</label>
-              <input type="text" name="country" value="<%= user.country %>"/>
+            <div class="row">
+              <input class="form-field" type="text" name="country" value="<%= user.country %>"/>
             </div>
-      <button>Update</button>
-  </form>
+            <button class="button login">Update</button>
+        </form>
+    </div>
 </div>
+
+
+<section id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-12">
+          <h4>&copy; Copyright <span class="farm"><a href="/">Last Bench</a></span> 2020</h4>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <h4 class="call"><i class="fa fa-phone"></i>: <a href="tel:+918258926316">+91-8258926316</a></h4>
+        </div>
+        <div class="foot col-md-4 col-sm-12">
+          <ul>
+            <li><a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://www.instagram.com"><i class="fa fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<script>
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+  }
+  
+  /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+    document.body.style.backgroundColor = "white";
+  }
+</script>
+</body>
+</html>
+  

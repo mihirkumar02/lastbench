@@ -12,9 +12,9 @@
 
 <div id="reg-form-section"> 
   <div class="options">
-     <h1>Register as student</h1>
+     <h1>Register as a Student</h1>
   </div>
-  <%- include('./partials/messages') %>
+  <h4><%- include('./partials/messages') %></h4>
   <div class="container form-container">
     <div class="formbox">
         <form action="/users/register" method="POST">
@@ -58,13 +58,13 @@
             <input class="form-field" type="text" name="role" readonly="readonly" value="Student"/>
           </div>
           <div class="row">
-            <button type="submit" class="button login">
-              Sign Up
+            <button type="submit" class="button register">
+              Welcome Aboard!
             </button>
           </div>
         </form>
-        <p>Register as a <a href="/users/registerfaculty">faculty</a></p>
-        <p class="lead mt-4">Have An Account? <a href="/users/login">Login</a></p>
+        <h4 class="category-link">Register as a <a href="/users/registerfaculty">faculty.</a></h4>
+        <h3 class="mt-4 login-link">Have An Account? <a href="/users/login">Login</a></h3>
       </div>
   </div>
 </div>

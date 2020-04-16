@@ -2,6 +2,10 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+body{
+  overflow-x: hidden;
+}
+
 .logo{
   max-height: 70%;
   max-width: 70%;
@@ -43,9 +47,9 @@
   /* Position and style the close button (top right corner) */
   .sidenav .closebtn {
     position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
+    top: -8px;
+    right: 28px;
+    font-size: 50px;
     margin-left: 50px;
   }
   
@@ -120,9 +124,9 @@
   }
 
   .profilepic{
-    width: 40%;
+    width: 50%;
     height: 50%;
-    box-shadow: 0 0 3px 2px black;
+    box-shadow: 0 5px 10px -2px black;
   }
 
   hr.hrstyle{
@@ -274,6 +278,10 @@
     color: white;
   }
 
+  .farm a:hover{
+    text-decoration: none;
+  }
+
   .form-field{
     width: 70%;
     background-color: #f5f0ab;
@@ -325,4 +333,38 @@
     min-height: 80vh;
     background: linear-gradient(90deg, #948ee3, #ffffff, #948ee3);
     padding-bottom: 5vh;
+  }
+
+  .register:hover{
+    background-color: #fb9a17;
+    color: white;
+  }
+
+  .category-link a{
+    color: orange;
+    font-weight: bold;
+  }
+
+  .category-link a:hover{
+    text-decoration: none;
+    opacity: 0.7;
+  }
+
+  .login-link a{
+    color: darkgreen;
+    font-weight: bold;
+  }
+
+  .login-link a:hover{
+    text-decoration: none;
+    opacity: 0.7;
+  }
+
+  .call a:hover{
+    text-decoration:none;
+    opacity: 0.8;
+  }
+
+  .foot a:hover{
+    opacity: 0.7;
   }
