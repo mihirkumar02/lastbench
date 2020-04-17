@@ -7,8 +7,11 @@ body{
 }
 
 .logo{
-  max-height: 70%;
-  max-width: 70%;
+  top: 5px;
+  right: 70px;
+  max-height: 10%;
+  max-width: 10%;
+  position:absolute;
 }
 
 .sidenav {
@@ -129,6 +132,12 @@ body{
     box-shadow: 0 5px 10px -2px black;
   }
 
+  .mypostpic{
+    width: 80%;
+    height: 80%;
+    box-shadow: 0 5px 10px -2px black;
+  }
+
   hr.hrstyle{
     border: 1px solid #734f96;
   }
@@ -209,7 +218,7 @@ body{
   .button{
     padding: 10px 15px;
     font-size: 20px;
-    background-color: white;
+    background-color: transparent;
     box-shadow: 0 0 1px 1px black;
     border-radius: 2px;
     border:none;
@@ -296,7 +305,17 @@ body{
     outline: none;
     border: 1px dashed black;
   }
-  
+
+  .form-field-upload{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .form-field-upload:focus{
+    outline: none;
+    border: 1px dashed black;
+  }
+
   .lavendertext a{
     color: #734f96;
     font-weight: bold;

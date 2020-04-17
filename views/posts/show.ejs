@@ -1,36 +1,67 @@
-<a href="/users/logout" class="btn btn-secondary">Logout</a>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../stylesheets/style.css">
+    <title>Last Bench | Post</title>
+  </head>
+  <body>
 
 
-<div>
-        <div>
-            <h2><%= post.title %> by - <span><%= post.author.username %></span></h2>
-            <h4>On - <span><%= post.date %></span></h4>
+
+<%- include('../partials/nav') %>
+<a href="/dashboard"><img class="logo" src="../../img/logo.jpg" alt="Logo"></a>
+
+<div id="main">
+        <div class="container">
+         <div class="text-center">
+            <h2><%= post.title %> by - <span class="text-success"><%= post.author.username %></span></h2>
+            <h5>On - <span><%= post.date %></span></h5>
             <% if(post.image != '') { %>
-                <img src="/dashboard/<%= post.image %>" alt="No image provided"/>
+                <img class="profilepic" src="/dashboard/<%= post.image %>" alt="No image provided"/>
             <% } %>
-            <p><%= post.description %></p>
+            <h4 class="mt-5"><%= post.description %></h4>
 
             <% if((currentUser && post.author.id.equals(currentUser._id)) || (currentUser.role === 'Admin')){ %>
-            <a href="/dashboard/<%= user._id %>/<%= post._id %>/edit">Edit</a>
-            <form action="/dashboard/<%= user._id %>/<%= post._id %>?_method=DELETE" method="POST">
-                <button>Delete</button>
-            </form>
+            <div class="row">
+                <div class="col-md-6 text-right">
+                    <a class="button login" href="/dashboard/<%= user._id %>/<%= post._id %>/edit">Edit</a>
+                </div>
+                <div class="col-md-6 text-left">
+                    <form action="/dashboard/<%= user._id %>/<%= post._id %>?_method=DELETE" method="POST">
+                        <button class="button register">Delete</button>
+                    </form>
+                </div>
+            </div>
             <% } %>
             <hr>
-            <div>
+            </div>
+            <div class="postcomments">
+                <div class="text-center">
+                    <h3>Comments</h3>
+                </div>
                 <% post.comments.forEach(function(comment){ %>
-                    <div>
+                    <div class="mb-4">
                         <h3><%= comment.text %></h3>
-                        <p>by <%= comment.author.username %></p>
+                        <h5>by <b><%= comment.author.username %></b></h5>
                     </div>
                     <% if((currentUser && comment.author.id.equals(currentUser._id)) || currentUser.fname === 'Admin'){ %>
-                        <a class="btn btn-xs btn-warning" href="/dashboard/<%= user._id %>/<%= post._id %>/comments/<%= comment._id %>/edit">Edit</a>
+                        <a class="button login" href="/dashboard/<%= user._id %>/<%= post._id %>/comments/<%= comment._id %>/edit">Edit</a>
                         <form style="display:inline;" action="/dashboard/<%= user._id %>/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-                          <button class="btn btn-xs btn-danger">Delete</button>
+                          <button class="button register">Delete</button>
                         </form>
                         <% } %>
+                    <hr>
                 <% }); %>
             </div>
-            <a href="/dashboard/<%= user._id %>/<%= post._id %>/comments/new">Comment</a>
+            <a class="button register mt-10" href="/dashboard/<%= user._id %>/<%= post._id %>/comments/new">Add your Comment</a>
         </div>        
 </div>
+
+<script src="../../js/core.js"></script>  
+</body>
+</html>
