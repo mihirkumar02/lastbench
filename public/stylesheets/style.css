@@ -228,7 +228,7 @@ body{
     padding: 10px 15px;
     font-size: 20px;
     background-color: transparent;
-    box-shadow: 0 0 20px -4px black;
+    box-shadow: 0 0 20px -10px black;
     border-radius: 5px;
     border:none;
   }
