@@ -1,8 +1,36 @@
-<h1>Edit <%= post.title %></h1>
-<form action="/dashboard/<%= user._id %>/<%= post._id %>?_method=PUT" method="POST">
-    <input type="text" name="title" value="<%= post.title %>">
-    <input type="text" name="description" value="<%= post.description %>">
-    <input type="text" name="image" value="<%= post.image %>">
-    <button>Update</button>
-</form>
-<a href="/dashboard">Go back</a>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../stylesheets/style.css">
+    <title>Last Bench | Edit Post</title>
+  </head>
+  <body>
+
+
+<%- include('../partials/nav') %>
+<a href="/dashboard"><img class="logo" src="../../img/logo.jpg" alt="Logo"></a>
+
+<div id="main">
+    <div class="container">
+    <span class="back"><a href="/dashboard/<%= user._id %>"><i class="fa fa-arrow-left"></i> Go back</a></span>
+    <div class="text-center">
+        <h1>Edit <%= post.title %></h1>
+    </div>
+    <form action="/dashboard/<%= user._id %>/<%= post._id %>?_method=PUT" method="POST">
+        <input type="text" name="title" value="<%= post.title %>">
+        <input type="text" name="description" value="<%= post.description %>">
+        <input type="text" name="image" value="<%= post.image %>">
+        <button class="button register">Update</button>
+    </form>
+
+    </div>
+</div>
+
+<%-  include('../partials/footer') %>
+<script src="../../js/core.js"></script>  
+</body>
+</html>

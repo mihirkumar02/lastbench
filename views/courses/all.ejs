@@ -6,56 +6,62 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../stylesheets/style.css">
-    <title>Last Bench | Edit My Profile</title>
+    <title>Last Bench | All Courses</title>
   </head>
   <body>
 
 
 <%- include('../partials/nav') %>
+<a href="/dashboard"><img class="logo" src="../../img/logo.jpg" alt="Logo"></a>
 
-
-<h1>All courses!</h1>
-<% if(user.role === 'Admin'){ %>
-    <a href="/admin/courses/new">Add new course</a>
-<% } %>
-
-<div>
-    <div>
-        <div>
-            <h2>Faculty Needed</h2>
-            <% courses.forEach(function(course){ %>
-                <% if((!course.teaching) && (user.role === 'Faculty' || user.role === 'Admin')) { %>
-                    <h3><%= course.code %> - <%= course.name %></h3>
-                    <% if(user.role === 'Faculty') { %>
-                        <form action="/courses/<%= course._id %>/details" method="POST">
-                            <button>Teach</button>
-                        </form>
-                    <% } %>
-                <% } %>
-            <% }); %>
+<div id="main">
+    <div class="container">
+        <span class="back"><a href="/dashboard/<%= user._id %>"><i class="fa fa-arrow-left"></i> Go back</a></span>
+        <div class="text-center"> 
+            <h1>Courses</h1>
         </div>
- 
-        <div style="float:right;margin-right: 100px;">
-            <h2>Available Courses</h2>
-            <% courses.forEach(function(course){ %>
-                <% if(course.teaching) { %>
-                    <h3><%= course.code %> - <%= course.name %></h3>
-                    <% if(user.role === 'Student' || user.role === 'Admin'){ %>
-                        <h4>Taught by - <%= course.faculty.username %></h4>
-                        <a href="/courses/<%= course._id %>/details">Details</a>
-                    <% } else if(user.role === 'Faculty'){ %>
-                        <% if(user._id.equals(course.faculty.id)) { %> 
-                            <a href="/courses/<%= course._id %>/details">Details</a>
-                        <% } %>
-                    <% } %>    
-                <% } %>  
-            <% }); %>
-        </div>
+        
+            <% if(user.role === 'Admin'){ %>
+                <a class="button register" href="/admin/courses/new">Add new course</a>
+            <% } %>
+
+                <div class="row">
+                    <div class="col-md-6 col-sm-12 text-center">
+                        <h2 class="text-success">Available</h2>
+                        <hr>
+                        <% courses.forEach(function(course){ %>
+                            <% if(course.teaching) { %>
+                                <h3><%= course.code %> - <b class="capital"><%= course.name %></b></h3>
+                                <% if(user.role === 'Student' || user.role === 'Admin'){ %>
+                                    <h4>Taught by - <b><%= course.faculty.username %></b></h4>
+                                    <a class="button register mt-5" href="/courses/<%= course._id %>/details">Details</a>
+                                <% } else if(user.role === 'Faculty'){ %>
+                                    <% if(user._id.equals(course.faculty.id)) { %> 
+                                        <a class="button register mt-5" href="/courses/<%= course._id %>/details">Details</a>
+                                    <% } %>
+                                <% } %>    
+                            <% } %>  
+                        <% }); %>
+                    </div>
+                    <div class="col-md-6 col-sm-12 text-center">
+                        <h2 class="text-danger">Faculty Needed</h2>
+                        <hr>
+                        <% courses.forEach(function(course){ %>
+                            <% if((!course.teaching) && (user.role === 'Faculty' || user.role === 'Admin')) { %>
+                                <h3><%= course.code %> - <%= course.name %></h3>
+                                <% if(user.role === 'Faculty') { %>
+                                    <form action="/courses/<%= course._id %>/details" method="POST">
+                                        <button class="button login">Teach</button>
+                                    </form>
+                                <% } %>
+                            <% } %>
+                        <% }); %>
+                    </div>
+                </div>
+            </div>
     </div>
 </div>
-
-<a href="/dashboard/<%= user._id %>">Go back</a>
-
-
-
 <%- include('../partials/footer') %>
+<script src="../../js/core.js"></script>  
+</body>
+</html>

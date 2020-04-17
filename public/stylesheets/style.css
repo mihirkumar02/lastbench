@@ -387,3 +387,7 @@ body{
   .foot a:hover{
     opacity: 0.7;
   }
+
+  .capital{
+    text-transform: uppercase;
+  }

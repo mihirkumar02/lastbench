@@ -65,7 +65,7 @@ router.get('/:id/all', ensureAuthenticated, (req, res) => {
                             studentMessages.push(message);
                         }
                     });
-                    res.render('courses/allmessages', { student: student, messages: studentMessages });
+                    res.render('courses/allmessages', { student: student, messages: studentMessages, user: req.user });
                 }
             });
         }
