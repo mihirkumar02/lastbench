@@ -44,7 +44,7 @@ router.get('/courses', ensureAuthenticated, (req, res) => {
 
 // OPTION TO ADD NEW COURSES
 router.get('/courses/new', isAdmin, (req, res) => {
-    res.render('courses/new');
+    res.render('courses/new', {user: req.user});
 });
 
 router.post('/courses', isAdmin, (req, res) => {

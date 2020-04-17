@@ -1,22 +1,51 @@
-<h1 class="mt-4">Current Users</h1>
-<p class="lead mb-3">Welcome <b><%= user.fname %></b>!</p>
-<a href="/profile/<%= user._id %>">Profile</a>
-<a href="/users/logout" class="btn btn-secondary">Logout</a>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="../../img/favicon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../stylesheets/style.css">
+    <title>Last Bench | Admin Dashboard</title>
+  </head>
+  <body>
 
 
-<div>
-    <% users.forEach(function(nonadmin){ %>
-        <% if(nonadmin.role != 'Admin') { %>
-            <div>
-                <div>
-                    <h2><%= nonadmin.fname %> <%= nonadmin.lname %></h2>
-                    <form action="/admin/dashboard/<%= nonadmin._id %>?_method=DELETE" method="POST">
-                        <button>Delete</button>
-                    </form>
-                </div>
-            </div>  
-        <% } %>      
-    <%  }); %>
+<%- include('../partials/nav') %>
+<a href="/dashboard"><img class="logo" src="../../img/logo.jpg" alt="Logo"></a>
+
+<div id="main">
+    <div class="container">
+        <span class="back"><a href="/dashboard"><i class="fa fa-arrow-left"></i> Go back</a></span>
+        <div class="text-left">
+            <h3>Welcome <b><%= user.fname %></b>!</h3>
+        </div>
+        <div class="text-center">
+            <h1>Current Users</h1>
+        </div>
+        <hr>
+        
+        <div>
+            <% users.forEach(function(nonadmin){ %>
+                <% if(nonadmin.role != 'Admin') { %>
+                    <div>
+                        <div>
+                            <h2><%= nonadmin.fname %> <%= nonadmin.lname %></h2>
+                            <form action="/admin/dashboard/<%= nonadmin._id %>?_method=DELETE" method="POST">
+                                <button class="button register">Remove</button>
+                            </form>
+                        </div>
+                    </div>  
+                <% } %>      
+            <%  }); %>
+        </div>
+    </div>
 </div>
 
-<a href="/dashboard">Go back</a>
+
+<%- include('../partials/footer') %>
+<script src="../../js/core.js"></script>  
+</body>
+</html>

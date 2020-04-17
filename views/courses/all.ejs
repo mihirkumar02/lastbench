@@ -50,7 +50,7 @@
                         <hr>
                         <% courses.forEach(function(course){ %>
                             <% if((!course.teaching) && (user.role === 'Faculty' || user.role === 'Admin')) { %>
-                                <h3><%= course.code %> - <%= course.name %></h3>
+                                <h3><%= course.code %> - <b class="capital"><%= course.name %></b></h3>
                                 <% if(user.role === 'Faculty') { %>
                                     <form action="/courses/<%= course._id %>/details" method="POST">
                                         <button class="button login">Teach</button>
