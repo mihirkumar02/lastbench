@@ -167,7 +167,7 @@ body{
   }
 
   #welcome {
-    background-image: url('../img/welcome.jpg');
+    background-image: url('../img/welcome.webp');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -263,7 +263,7 @@ body{
   }
 
   #useroptions{
-    background-image: url('../img/createacc.jpg');
+    background-image: url('../img/createacc.webp');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -350,7 +350,7 @@ body{
   }
 
   #form-section{
-    background-image: url('../img/formbg.jpg');
+    background-image: url('../img/formbg.webp');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
