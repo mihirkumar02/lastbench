@@ -1,7 +1,45 @@
-<h2>Leave a message for <%= student.fname %>&nbsp;<%= student.lname %></h2>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="../../img/favicon.png">
+    <link rel="stylesheet" href="../../stylesheets/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <title>Last Bench | Drop A Message</title>
+  </head>
+  <body>
 
-<form action="/studentmessages/<%= student._id %>" method="POST">
-    <input type="text" name="sender" value="<%= user.fname %> <%= user.lname %>">
-    <textarea name="message" cols="30" rows="10" placeholder="Type your message here.."></textarea>
-    <button>Send</button>
-</form>
+
+<%- include('../partials/nav') %>
+<a href="/dashboard"><img class="logo" src="../../img/logo.jpg" alt="Logo"></a>
+
+<div id="main">
+    <div class="container">
+        <span class="back"><a href="/dashboard/<%= user._id %>"><i class="fa fa-arrow-left"></i> Go back</a></span>
+        <div class="text-center">
+            <h1>Leave a message for <b><%= student.fname %>&nbsp;<%= student.lname %></b></h1>
+        </div>
+        <hr>
+        <div class="text-center">
+            <form action="/studentmessages/<%= student._id %>" method="POST">
+                <div class="row">
+                    <input class="form-field" type="text" name="sender" value="<%= user.fname %> <%= user.lname %>">
+                </div>
+                <div class="row">
+                    <textarea class="form-field " name="message" cols="30" rows="10" placeholder="Type your message here.."></textarea>
+                </div>
+                <div class="row">
+                    <button class="button register">Send</button>
+                </div>
+            </form>    
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>
+<script src="../../js/core.js"></script>  
+</body>
+</html>

@@ -22,10 +22,11 @@
         <div class="text-center">
             <h2>Class Messages</h2>
         </div>
+        <hr>
         <div class="row">
             <% messages.forEach(function(message) { %>
                 <h5>From: <b><%= message.sender.name %></b></h5>
-                <h3>Message: <%= message.message %></h3>
+                <h4>Message: <%= message.message %></h4>
             <% }); %>
             <hr>
         </div>

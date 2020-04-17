@@ -26,17 +26,27 @@
             </div>
         </div>
         
-
+        <hr>
         <% if((user.role === 'Faculty' && (course.faculty.id.equals(user._id))) || user.role === 'Admin') { %>
             <% if(user.role === 'Faculty') { %>
-                <a class="button login" href="/courses/<%= course._id %>/<%= user._id %>/pending">Approve posts</a>
-                <form action="/courses/student" method="POST">
-                    <input class="form-field" type="text" name="searchregno" placeholder="Enter registration number to be searched..">
-                    <button class="button register">Search</button>
-                </form>
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="text-center">
+                            <a class="button login" href="/courses/<%= course._id %>/<%= user._id %>/pending">Approve posts</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <form action="/courses/student" method="POST">
+                            <input class="form-field" type="text" name="searchregno" placeholder="Enter registration number to be searched..">
+                            <button class="button register">Search</button>
+                        </form>
+                    </div>
+                </div>
             <% } %>
-            <div class="text-center">
-                <a class="button login" href="/courses/<%= course._id %>/<%= user._id %>">Course Page</a>
+            <div class="options">
+                <div class="text-center">
+                    <a class="button login" href="/courses/<%= course._id %>/<%= user._id %>">Course Page</a>
+                </div>
             </div>
             <div class="text-center">
                 <h2>Students</h2>

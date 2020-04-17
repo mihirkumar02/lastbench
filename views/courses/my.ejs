@@ -1,27 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="../../img/favicon.png">
+    <link rel="stylesheet" href="../../stylesheets/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <title>Last Bench | My Courses</title>
+  </head>
+  <body>
+
+
+<%- include('../partials/nav') %>
+<a href="/dashboard"><img class="logo" src="../../img/logo.jpg" alt="Logo"></a>
+
+
 <% if(user.role === 'Faculty') { %>
-    <h2>Courses taught by <%= user.fname %> <%= user.lname %></h2>
-
-    <div>
-        <% courses.forEach(function(course){ %>
-            <div>
-                <h3><%= course.code %> - <%= course.name %></h3>
-                <a href="/courses/<%= course._id %>/details">Details</a>
+    <div id="main">
+        <div class="container">
+            <span class="back"><a href="/dashboard/<%= user._id %>"><i class="fa fa-arrow-left"></i> Go back</a></span>
+            <div class="text-center">
+                <h2>Courses taught by <b>You</b></h2>
             </div>
-        <% }); %>   
+            <hr>
+            <div class="text-center">
+                <% courses.forEach(function(course){ %>
+                    <div class="text-center">
+                        <h3><%= course.code %> - <b class="capital"><%= course.name %></b></h3>
+                        <div class="text-center">
+                            <a class="button register" href="/courses/<%= course._id %>/details">Details</a>
+                        </div>
+                    </div>
+                <% }); %>   
+            </div>
+        </div>
     </div>
-<% } else { %>
-    <h2>Registered courses for <%= user.fname %></h2>
 
-    <div>
-        <% courses.forEach(function(course){ %>
-            <div>
-                <h3><%= course.code %> - <%= course.name %></h3>
-                <h4>Taught by - <%= course.faculty.username %></h4>
-                <a href="/courses/<%= course._id %>/details">Details</a>
+<% } else { %>
+    <div id="main">
+        <div class="container">
+            <span class="back"><a href="/dashboard/<%= user._id %>"><i class="fa fa-arrow-left"></i> Go back</a></span>
+            <div class="center-text">
+                <h2>Courses registered for <b>You</b></h2>
             </div>
-        <% }); %>   
+            <hr>
+            <div>
+                <% courses.forEach(function(course){ %>
+                    <div class="text-center">
+                        <h3><%= course.code %> - <b class="capital"><%= course.name %></b></h3>
+                        <h4>Taught by - <b><%= course.faculty.username %></b></h4>
+                        <div class="text-center">
+                            <a class="button register" href="/courses/<%= course._id %>/details">Details</a>
+                        </div>
+                    </div>
+                <% }); %>   
+            </div>
+        </div>
     </div>
 <% } %>
 
 
-<a href="/dashboard/<%= user._id %>">Go back</a>
+<%- include('../partials/footer') %>
+<script src="../../js/core.js"></script>  
+</body>
+</html>

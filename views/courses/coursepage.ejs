@@ -26,14 +26,16 @@
             </div>
         </div>
         <hr>
-        <div class="text-center">
-            <h3><b>Course Page</b></h3>
+            <div class="text-center">
+                <h3><b>Course Page</b></h3>
+            </div>
             <div class="row">
-                <div class="text-center col-md-6 col-sm-12">
+                <div class="col-md-6 col-sm-12">
                     <% if(user.role === 'Faculty') { %>
+                
                     <a class="button login" href="/courses/<%= course._id %>/<%= user._id %>/pending">Approve posts</a>
                     <form action="/courses/student" method="POST">
-                        <input type="text" name="searchregno" placeholder="Enter registration number to be searched..">
+                        <input class="form-field" type="text" name="searchregno" placeholder="Enter registration number to be searched..">
                         <button class="button register">Search</button>
                     </form>
                     <% } %>
@@ -68,15 +70,18 @@
                             <h4><%= post.description %></h4>
                             <% if((currentUser && post.author.id.equals(currentUser._id)) || (currentUser.role === 'Admin' || currentUser.role === 'Faculty')){ %>
                             <div>
-                                <a href="/courses/<%= course._id %>/<%= user._id %>/<%= post._id %>/edit">Edit</a>
+                                <a class="button register" href="/courses/<%= course._id %>/<%= user._id %>/<%= post._id %>/edit">Edit</a>
                                 <form action="/courses/<%= course._id %>/<%= user._id %>/<%= post._id %>?_method=DELETE" method="POST">
-                                   <button>Delete</button>
+                                   <button class="button login">Delete</button>
                                 </form>
                             </div>
                             <% } %>
                         </div>
                     <% } %>
-                <% }); %>        
+                <% }); %>  
+                <div class="text-center">
+                    <a class="button register" href="/courses/<%= course._id %>/<%= user._id %>/new">Add new post</a>
+                </div>      
             </div>
             <div class="col-md-6 col-sm-12">
                 <div class="text-center"> 
