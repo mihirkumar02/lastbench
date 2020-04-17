@@ -1,21 +1,52 @@
-<h1>Post verification page</h1>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="../../img/favicon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../stylesheets/style.css">
+    <title>Last Bench | Course Page</title>
+  </head>
+  <body>
 
-<a href="/courses/<%= course._id %>/<%= user._id %>">Go back</a>
-<a href="/users/logout" class="btn btn-secondary">Logout</a>
-<% posts.forEach(function(post){ %>
-    <div>
-        <h1><%= post.title %></h2>
-        <h3>by - <%= post.author.regno %>&nbsp;<%= post.author.username %></h3>
-        <h4><%= post.description %></h4>
-        <img src="/course/<%= post.image %>" height="300px" width="300px" alt="Image">
-        <form action="/courses/<%= course._id %>/<%= user._id %>/verified/<%= post._id %>" method="POST">
-            <button>Approve</button>
-        </form>
-        <form action="/courses/<%= course._id %>/<%= user._id %>/<%= post._id %>?_method=DELETE" method="POST">
-            <button>Delete</button>
-        </form>
-    </div>  
-<% }); %>
-<% if(posts.length == 0){ %>
-    <h2>No posts to verify!</h2>
-<% } %>
+
+<%- include('../partials/nav') %>
+<a href="/dashboard"><img class="logo" src="../../img/logo.jpg" alt="Logo"></a>
+
+<div id="main">
+    <div class="container">
+        <span class="back"><a href="/courses/<%= course._id %>/<%= user._id %>"><i class="fa fa-arrow-left"></i> Go back</a></span>
+        <div class="text-center">
+            <h1>Post verification page</h1>
+        </div>
+
+        <% posts.forEach(function(post){ %>
+            <div>
+                <h1><%= post.title %></h2>
+                <h3>by - <b><%= post.author.regno %>&nbsp;<%= post.author.username %></b></h3>
+                <h4><%= post.description %></h4>
+                <img class="profilepic" src="/course/<%= post.image %>" alt="Image">
+                <form action="/courses/<%= course._id %>/<%= user._id %>/verified/<%= post._id %>" method="POST">
+                    <button class="button register">Approve</button>
+                </form> 
+                <form action="/courses/<%= course._id %>/<%= user._id %>/<%= post._id %>?_method=DELETE" method="POST">
+                    <button class="button login">Delete</button>
+                </form>
+            </div>  
+        <% }); %>
+        <% if(posts.length == 0){ %>
+            <div class="text-center">
+                <h2>No posts to verify!</h2>
+            </div>
+        <% } %>
+        
+    </div>
+</div>
+
+<%- include('../partials/footer') %>
+<script src="../../js/core.js"></script>  
+</body>
+</html>
