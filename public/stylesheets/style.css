@@ -63,6 +63,15 @@ body{
     min-height: 80vh;
   }
 
+  .text-center a{
+    color: black;
+  }
+
+  .text-center a:hover{
+    text-decoration: none;
+  }
+
+
   .display{
     margin-bottom: 10px;
   }
