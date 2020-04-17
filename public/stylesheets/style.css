@@ -363,6 +363,10 @@ body{
     padding-bottom: 5vh;
   }
 
+  .login{
+    background-color: white;
+  }
+
   .register:hover{
     background-color: #fb9a17;
     color: white;
@@ -399,4 +403,54 @@ body{
 
   .capital{
     text-transform: uppercase;
+  }
+
+  @media only screen and (max-width: 1050px){
+    #useroptions{
+      background: none;
+      min-height: 45vh;
+      padding-bottom: 5vh;
+    }
+
+    #welcome {
+      background-size: 100% 100%;
+    }
+
+    .choicesrow{
+      width: 100%;
+      margin: 20px auto 0 auto;
+    }
+
+    .choices{
+      display: inline;
+    }
+
+    .onscreen{
+      margin-top: 5vh;
+    }
+
+    .choicesbox{
+      border-radius: 5px;
+      border: 1px solid #734f96;
+      box-shadow: 0 0 10px -2px #734f96;
+      padding: 15px 0;
+      width: 95%;
+      margin: 0 auto;
+    }
+
+    .options h3{
+      font-size: 28px;
+    }
+
+    .formbox{
+      width: 90%;
+    }
+
+    .options h1{
+      font-size: 30px;
+    }
+
+    #form-section{
+      background-size: 100% 100%;
+    }
   }
